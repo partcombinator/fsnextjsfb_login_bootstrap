@@ -48,35 +48,81 @@ export default function register() {
   return (
     <>
     <Layout>
-            <form className='box-container' onSubmit={formik.handleSubmit}>
-                <h1>Register</h1>
-                <input type="email" placeholder="Email" className='input'
-                    onChange={formik.handleChange}
-                    value={formik.values.userEmail}
-                    name="userEmail"
-                    isInvalid={formik.errors.userEmail}
-                    required
+    <main className="login-form m-4">
+    <div className="cotainer">
+        <div className="row justify-content-center">
+            <div className="col-md-6">
+                <div className="card">
+                    <div className="card-header">Login</div>
+                    <div className="card-body">
+                        <form onSubmit={formik.handleSubmit}>
+                            <div className="form-group row mt-4">
+                                <label for="email_address" className="col-md-4 col-form-label text-md-right">E-Mail Address</label>
+                                <div className="col-md-6">
+                                    <input type="text" id="email_address" className="form-control" 
+                                    onChange={formik.handleChange}
+                                    value={formik.values.userEmail}
+                                    placeholder="Your Email" 
+                                    name="userEmail"
+                                    isInvalid={formik.errors.userEmail}
+                                    required
+                                    autofocus/>
+                                </div>
+                            </div>
 
-                />
-                <input type="password"  placeholder="Password" className='input'
-                    onChange={formik.handleChange}
-                    value={formik.values.userPassword}
-                    isInvalid={formik.errors.userPassword}
-                    name="userPassword"
-                    required
-                />
-                <input type="password"  placeholder="Repear your password" className='input'
-                    onChange={formik.handleChange}
-                    value={formik.values.userRepeatPassword}
-                    isInvalid={formik.errors.userRepeatPassword}
-                    name="userRepeatPassword"
-                    required
-                />
+                            <div className="form-group row mt-4">
+                                <label for="password" className="col-md-4 col-form-label text-md-right">Password</label>
+                                <div className="col-md-6">
+                                    <input type="password" id="password" className="form-control"
+                                    onChange={formik.handleChange}
+                                    value={formik.values.userPassword}
+                                    isInvalid={formik.errors.userPassword}
+                                    name="userPassword"
+                                    required
+                                    />
+                                </div>
+                            </div>
 
-                <button type="submit" className='button'>{ isLoading ? 'Loading' : 'Register' }</button>
-                <Link href='/login'>Login</Link><Link href='/'>Home</Link>
-            </form>
-       </Layout>     
+                            <div className="form-group row mt-4">
+                                <label for="password" className="col-md-4 col-form-label text-md-right">Repeat Password</label>
+                                <div className="col-md-6">
+                                    <input type="password" id="password" className="form-control"
+                                    onChange={formik.handleChange}
+                                    value={formik.values.userRepeatPassword}
+                                    isInvalid={formik.errors.userRepeatPassword}
+                                    name="userRepeatPassword"
+                                    required
+                                    />
+                                </div>
+                            </div>
+
+                            <div className="form-group row">
+                                <div className="col-md-6 offset-md-4 mt-4">
+                                    <div className="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="remember"/> Remember Me
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="col-md-6 offset-md-4 mt-4">
+                                <button type="submit" className="btn btn-primary">
+                                   { isLoading ? 'Loading' : 'Register' }
+                                </button>
+                                <Link href="/login" className="btn btn-link">
+                                    Do you have an account?
+                                </Link>
+                            </div>
+                            </form>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</main>   
+       </Layout> 
     </>
   );
 }
